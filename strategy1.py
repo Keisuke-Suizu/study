@@ -1,5 +1,7 @@
 import pandas
 
+#gitの練習
+
 DATETIME=0
 ASK_OPEN=1
 ASK_HIGH=2

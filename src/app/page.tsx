@@ -11,36 +11,33 @@
 
 import React from 'react';
 
-// SVGアイコンのコンポーネントを定義します
-const CheckCircleIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+// パチンコ玉アイコンのコンポーネント
+const PachinkoBallIcon = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={`h-8 w-8 ${className}`}>
+    <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12 18a6 6 0 100-12 6 6 0 000 12z" clipRule="evenodd" />
+    <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
   </svg>
 );
 
-export default function GyoseishoshiHomePage() {
-  // ボタンがクリックされたときに実行される関数
-  const handleInquiryClick = () => {
-    // 「未実装です」というポップアップを表示します
-    alert('未実装です');
+export default function PachinkasuGyoseishoshiPage() {
+  // ボタンクリック時のポップアップ
+  const handleButtonClick = () => {
+    alert('未実装です（今日は確変中なので、合わせ延長でお願いします！）');
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen font-sans text-gray-800">
+    <div className="bg-gray-900 min-h-screen font-sans text-white selection:bg-yellow-500 selection:text-black">
       {/* ヘッダー */}
-      <header className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-blue-800">鈴木行政書士事務所</h1>
-          <nav className="hidden md:flex space-x-8">
-            <a href="#" className="text-gray-600 hover:text-blue-700 transition">業務内容</a>
-            <a href="#" className="text-gray-600 hover:text-blue-700 transition">事務所概要</a>
-            <a href="#" className="text-gray-600 hover:text-blue-700 transition">料金案内</a>
-          </nav>
+      <header className="bg-black/50 backdrop-blur-sm shadow-lg shadow-yellow-500/10 sticky top-0 z-50">
+        <div className="container mx-auto px-6 py-3 flex justify-between items-center">
+          <h1 className="text-2xl font-black tracking-wider text-yellow-300 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+            パチンカス行政書士事務所
+          </h1>
           <button 
-            onClick={handleInquiryClick}
-            className="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition font-semibold"
+            onClick={handleButtonClick}
+            className="bg-red-600 text-white px-5 py-2 rounded-md border-2 border-red-400 hover:bg-red-700 transition font-bold shadow-md hover:shadow-lg"
           >
-            お問い合わせ
+            相談する
           </button>
         </div>
       </header>
@@ -48,86 +45,79 @@ export default function GyoseishoshiHomePage() {
       {/* メインコンテンツ */}
       <main>
         {/* ヒーローセクション */}
-        <section className="bg-blue-800 text-white text-center py-20 px-6">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-            あなたの暮らしとビジネスの「困った」を、<br />法務の力で解決します。
+        <section className="text-center py-24 px-6 bg-cover bg-center" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre-v2.png')" }}>
+          <h2 className="text-5xl md:text-7xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 drop-shadow-lg">
+            行政の壁を突破する、俺のST！
           </h2>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-blue-100">
-            相続・遺言から会社設立、許認可申請まで。複雑で面倒な手続きは、すべて当事務所にお任せください。
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-6 text-gray-300 font-semibold">
+            「確変より確実！」 「依頼はハマらせません！」
+          </p>
+          <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-gray-400">
+            書類もパチンコも、連チャンが命！
           </p>
           <button
-            onClick={handleInquiryClick}
-            className="bg-yellow-400 text-blue-900 font-bold py-4 px-10 rounded-full hover:bg-yellow-500 transition duration-300 text-lg shadow-lg transform hover:scale-105"
+            onClick={handleButtonClick}
+            className="bg-gradient-to-b from-yellow-400 to-yellow-600 text-black font-bold py-4 px-12 rounded-full hover:from-yellow-500 hover:to-yellow-700 transition duration-300 text-xl shadow-lg shadow-yellow-500/20 transform hover:scale-110"
           >
-            初回無料相談を予約する
+            大当たり(初回相談)を引く
           </button>
         </section>
 
-        {/* 業務内容セクション */}
-        <section className="py-16 bg-white">
+        {/* 特徴セクション */}
+        <section className="py-20 bg-gray-800/50">
           <div className="container mx-auto px-6">
-            <h3 className="text-3xl font-bold text-center mb-12 text-gray-900">主な取り扱い業務</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* 業務カード 1 */}
-              <div className="border border-gray-200 p-8 rounded-lg shadow-md hover:shadow-xl transition">
-                <h4 className="text-xl font-semibold text-blue-800 mb-3">相続・遺言</h4>
-                <p className="text-gray-600">
-                  遺産分割協議書の作成、遺言書の起案・執行など、円満な相続手続きをトータルでサポートします。
+            <h3 className="text-4xl font-bold text-center mb-16 text-yellow-300">当事務所の揺るぎない特徴</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* 特徴カード 1 */}
+              <div className="bg-gray-900 border-2 border-yellow-500/30 p-8 rounded-lg shadow-lg text-center hover:border-yellow-500 transition">
+                <h4 className="text-xl font-bold text-yellow-400 mb-3">相談場所</h4>
+                <p className="text-gray-300">
+                  パチンコ屋の休憩コーナーで。コーヒー片手に対応します。
                 </p>
               </div>
-              {/* 業務カード 2 */}
-              <div className="border border-gray-200 p-8 rounded-lg shadow-md hover:shadow-xl transition">
-                <h4 className="text-xl font-semibold text-blue-800 mb-3">会社設立・許認可</h4>
-                <p className="text-gray-600">
-                  株式会社・合同会社の設立から、建設業・飲食店の営業許可まで、事業のスタートを力強く後押しします。
+              {/* 特徴カード 2 */}
+              <div className="bg-gray-900 border-2 border-yellow-500/30 p-8 rounded-lg shadow-lg text-center hover:border-yellow-500 transition">
+                <h4 className="text-xl font-bold text-yellow-400 mb-3">書類記入</h4>
+                <p className="text-gray-300">
+                  玉箱（ドル箱）の上で。安定感には自信があります。
                 </p>
               </div>
-              {/* 業務カード 3 */}
-              <div className="border border-gray-200 p-8 rounded-lg shadow-md hover:shadow-xl transition">
-                <h4 className="text-xl font-semibold text-blue-800 mb-3">ビザ・在留資格</h4>
-                <p className="text-gray-600">
-                  外国籍の方の就労ビザ、経営・管理ビザ、永住許可申請など、複雑な国際業務に対応します。
+              {/* 特徴カード 3 */}
+              <div className="bg-gray-900 border-2 border-yellow-500/30 p-8 rounded-lg shadow-lg text-center hover:border-yellow-500 transition">
+                <h4 className="text-xl font-bold text-yellow-400 mb-3">報酬体系</h4>
+                <p className="text-gray-300">
+                  現金、または特殊景品（商品券）も可。柔軟に対応。
+                </p>
+              </div>
+              {/* 特徴カード 4 */}
+              <div className="bg-gray-900 border-2 border-yellow-500/30 p-8 rounded-lg shadow-lg text-center hover:border-yellow-500 transition">
+                <h4 className="text-xl font-bold text-yellow-400 mb-3">営業時間</h4>
+                <p className="text-gray-300">
+                  新台入替以外の平日。朝イチの並びは優先します。
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 当事務所の強みセクション */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-6 text-center">
-            <h3 className="text-3xl font-bold mb-12 text-gray-900">選ばれる3つの理由</h3>
-            <div className="flex flex-col md:flex-row justify-center gap-10">
-              <div className="flex items-start">
-                <CheckCircleIcon />
-                <div>
-                  <h4 className="text-lg font-semibold">初回相談無料</h4>
-                  <p className="text-gray-600">まずはお気軽にご状況をお聞かせください。</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <CheckCircleIcon />
-                <div>
-                  <h4 className="text-lg font-semibold">明確な料金体系</h4>
-                  <p className="text-gray-600">ご依頼前に必ずお見積りを提示します。</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <CheckCircleIcon />
-                <div>
-                  <h4 className="text-lg font-semibold">土日・夜間対応可</h4>
-                  <p className="text-gray-600">お忙しい方でも安心してご相談いただけます。</p>
-                </div>
-              </div>
+        {/* キャッチコピーセクション */}
+        <section className="py-20 text-center">
+            <div className="container mx-auto px-6">
+                <PachinkoBallIcon className="text-yellow-400 mx-auto mb-4 animate-bounce" />
+                <blockquote className="text-3xl md:text-4xl font-bold italic text-white max-w-4xl mx-auto">
+                    “依頼人の権利、俺が守る！<br/>
+                    <span className="text-red-500 underline decoration-wavy">財布の中身は守れない！</span>”
+                </blockquote>
+                <cite className="block mt-4 text-lg text-gray-400">- 代表行政書士 鈴木 -</cite>
             </div>
-          </div>
         </section>
       </main>
 
       {/* フッター */}
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="bg-black text-gray-500 py-6">
         <div className="container mx-auto px-6 text-center">
-          <p>&copy; 2025 鈴木行政書士事務所. All Rights Reserved.</p>
+          <p className="mb-2">印鑑ケースの中にはなぜかパチンコ玉が混じっています。</p>
+          <p>&copy; 2025 パチンカス行政書士事務所. All Rights Reserved (たぶん).</p>
         </div>
       </footer>
     </div>
